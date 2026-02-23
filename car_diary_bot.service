@@ -1,0 +1,17 @@
+[Unit]
+Description=Car Diary Telegram Bot
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/car_diary_bot
+EnvironmentFile=/root/car_diary_bot/.env
+ExecStart=/usr/bin/python3 -m bot.main
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
